@@ -91,10 +91,6 @@ public class BookingPage extends MainPage {
         new ExtendedWait(driver, 30).forDeletedBookingToDisappear(currentBookingCount);
     }
 
-//    private void setBookingCount(int bookingCount) {
-//        this.totalBookingsCount = bookingCount;
-//    }
-
     public void enterBookingDetailsAndSave(HotelBooking hotelBooking) {
         new BookingPage(this.driver)
                 .enterFirstName(hotelBooking.getFirstName())
@@ -105,7 +101,6 @@ public class BookingPage extends MainPage {
                 .selectCheckoutDate(hotelBooking.getCheckout())
                 .clickSave();
     }
-
 
     public List<HotelBooking> getAllTheBookings() {
         int totalBooking = driver.findElement(id("bookings"))

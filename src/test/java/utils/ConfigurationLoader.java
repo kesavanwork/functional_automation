@@ -15,8 +15,6 @@ public class ConfigurationLoader {
 
     private static Map<String, String> initialise() {
         Constructor constructor = new Constructor(Map.class);
-        String fileName = "";
-//        fileName = Optional.ofNullable(System.getProperty("environment")).orElse("test") + ".yml";
         InputStream input = ConfigurationLoader.class.getClassLoader().getResourceAsStream("config/test.yml");
         System.out.println();
         Yaml yaml = new Yaml();

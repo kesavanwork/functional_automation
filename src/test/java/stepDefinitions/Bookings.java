@@ -33,9 +33,6 @@ public class Bookings {
         driver.get(URL);
     }
 
-
-
-
     @When("^Customer enter the details and click Save$")
     public void customerEnterTheDetailsAndClickSave(DataTable table) {
         Map<String, String> bookingDataInMap = table.asMap(String.class, String.class);

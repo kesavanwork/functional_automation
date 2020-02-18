@@ -34,7 +34,23 @@ test {
     exclude '**'
 }
 
-task functionalTest(dependsOn: ['testClasses']) {
+task dryrun(dependsOn: ['testClasses']) {
+    doLast {
+        javaexec {
+            classpath = sourceSets.test.runtimeClasspath
+            main = 'cucumber.api.cli.Main'
+            args = ['--tags', '~@wip',
+                    '--plugin', 'pretty',
+                    '--strict',
+                    '--glue', 'classpath:stepDefinitions',
+                    '--glue','classpath:utils',
+                    '--dry-run',
+                    'src/test/resources'
+            ]
+        }
+    }
+}
+task functionalTests(dependsOn: ['testClasses']) {
     doLast {
         javaexec {
             classpath = sourceSets.test.runtimeClasspath
